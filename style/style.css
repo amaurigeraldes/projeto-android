@@ -1,0 +1,257 @@
+@charset "UTF-8";
+
+/* Importar Fonte Bebas Neue do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Carregar a fonte idroid baixada do site dafont.com */
+@font-face {
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+
+/* Minha Paleta de Cores Monocromática (https://color.adobe.com/pt/create/color-wheel) */
+
+/* Criando Variáveis para as Cores e Fontes:  */
+:root {
+    --cor0: #c5ebd6;
+    --cor1: #83E1AD;
+    --cor2: #3DDB84;
+    --cor3: #2FA866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+    --fonte-android: 'Android', cursive;
+}
+
+/* Configurações Globais:  */
+/* Zerar todas as margens e paddings */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+/* No site https://emojipedia.org/ pesquisar por link e 
+anottar o Codepoint U+1F517
+Após todos os Links Externos colocar o emoji: */
+
+/* No Html precisa ser incluída a class="externo" nos Links Externos */
+a.externo::after {
+    content: "\00A0\1F517";
+}
+
+
+header {
+    /* Criando o efeito degradê */
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    min-height: 150px;
+    text-align: center;
+    padding-top: 40px;
+}
+
+header > h1 {
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-weight: normal;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.266);
+}
+
+header > p {
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    color: white;
+    max-width: 600px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.266);
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.192);
+}
+
+nav > a {
+    color:var(--cor1);
+    /* Espaçamento entre os Links */
+    padding: 10px;
+    /* Arredondamento dos Cantos dos Links*/
+    border-radius: 5px;
+    /* Eliminar o sublinhado */
+    text-decoration: none;
+    /* Colocar em Negrito */
+    font-weight: bold;
+    /* Transição quando passar o pointer do mouse  */
+    transition-duration: 0.75s;
+}
+
+nav > a:hover {
+    /* Mudar de Cor quando passar o pointer do mouse */
+    background-color: var(--cor2);
+    color: var(--cor5);
+}
+
+main {
+    /* Ajustes da Largura para tornar o site Responsivo */
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+
+    /* Para dar um espaço nas laterais:*/
+    padding: 15px;
+    background-color: white;
+
+    /* Criar uma sobra para a Caixa: */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+
+    /* Criar margem inferior e arredondar os cantos: */
+    margin-bottom: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+main h1 {
+    color: var(--cor4);
+    font-family: var(--fonte-android);
+    font-size: 1.8em;
+    font-weight: normal;
+}
+
+main h2 {
+    color: var(--cor4);
+    font-size: 1.3em;
+    font-weight: normal;
+    font-family: var(--fonte-android);
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+    text-indent: 8px;
+}
+
+/* Espaçamento no Top e Bottom e Justificar os Textos */
+main p {
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px;
+    /* Tamanho da Fonte e Espaçamento entre as Linhas */
+    font-size: 1em;
+    line-height: 2em;
+}
+
+main strong {
+    color: var(--cor3);
+    font-weight: bolder;
+}
+
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor4);
+    background-color: var(--cor1);
+    padding: 2px 6px;
+}
+
+/* Muda a cor e sublinha o Link quando passar o pointer */
+main a:hover {
+    text-decoration: underline;
+    background-color: var(--cor3);
+    color: var(--cor5);
+}
+
+
+main img {
+    /* Ajustes das Imagens para tornar o site Responsivo */
+    width: 100%;
+}
+
+/* Criada a class="pequena" para a img do Bugdroid */
+/* Ajustar e Centralizar a img do Bugdroid */
+main img.pequena {
+    max-width: 350px;
+    display: block;
+    margin: auto;
+}
+
+/* Para Alinhar o Video do YouTube, foi criada uma div "Empacotando" a 
+Tag iframe e criando a class="video" */
+div.video {
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+
+    /* Macete para ajustar o Video: */
+    padding-bottom: 56.5%;
+    position: relative;
+}
+
+
+div.video > iframe {
+    /* Macete para ajustar o Video: */
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+
+
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.358);
+}
+
+aside > h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    /* Margem Negativa para Aumentar a Margem Letf, Top e Right  */
+    margin: -10px -10px 0px -10px;
+    /* Arredondar Top-Left e Top-Right  */
+    border-radius: 10px 10px 0px 0px;
+}
+
+aside > ul {
+    /* Para os marcadores passarem para dentro da Caixa */
+    list-style-position: inside;
+    /* Para dividir a Lista em 2 Colunas  */
+    columns: 2;
+    /* No site https://emojipedia.org/ 
+    pesquisar por Check e anotar o Codeponts: U+2714
+    Entre aspas \2714 e o \00A0 para dar um Espaço */
+    /* Obs.: Não é compatível com todos os tipos de Navegadores */
+    list-style-type: "\2714\00A0\00A0";
+
+}
+
+
+
+footer {
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    padding: 5px;
+}
+
+footer > p > a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--cor1);
+    text-decoration: underline;
+}
